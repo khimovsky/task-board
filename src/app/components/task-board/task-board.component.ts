@@ -47,17 +47,10 @@ export class TaskBoardComponent implements OnInit {
 
   addTask(): void {
     if (this.taskForm.valid) {
-      const title = this.taskForm.get('title')?.value ?? '';
-      const description = this.taskForm.get('description')?.value ?? '';
-      const assignedTo = this.taskForm.get('assignedTo')?.value ?? '';
-
       this.taskService.addTask({
-        title,
-        description,
-        assignedTo,
+        ...this.taskForm.getRawValue(),
         status: 'new'
       });
-
       this.taskForm.reset();
     }
   }

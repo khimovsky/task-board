@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task, TaskStatuses } from '../../models/task.model';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { TaskComponent } from '../task/task.component';
 
 @Component({
@@ -11,7 +11,6 @@ import { TaskComponent } from '../task/task.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     NgFor,
-    NgIf,
     TaskComponent,
   ],
 })

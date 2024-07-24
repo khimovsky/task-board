@@ -7,12 +7,11 @@ import { Task } from '../models/task.model';
 })
 export class TaskService implements OnInit {
   private tasksSubject = new BehaviorSubject<Task[]>([]);
-  tasks$ = this.tasksSubject.asObservable();
-
   private nextId = 1;
 
+  public tasks$ = this.tasksSubject.asObservable();
+
   ngOnInit() {
-    // Инициализация с пустым массивом задач (без взаимодействия с сервером)
     this.tasksSubject.next([]);
   }
 
