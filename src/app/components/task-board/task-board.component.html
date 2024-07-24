@@ -1,0 +1,29 @@
+<div>
+  <h1>Task Board</h1>
+  <div class="wrapper">
+    <form [formGroup]="taskForm" class="form">
+      <div class="inputs">
+        <mat-form-field class="input">
+          <input matInput formControlName="title" placeholder="Title"/>
+        </mat-form-field>
+        <mat-form-field class="input">
+          <input matInput formControlName="description" placeholder="Description" />
+        </mat-form-field>
+        <mat-form-field class="input">
+          <input matInput formControlName="assignedTo" placeholder="Assigned To" />
+        </mat-form-field>
+      </div>
+      <button mat-button type="submit" (click)="addTask()" class="button">Добавить задачу</button>
+    </form>
+    <div class="board">
+      <div *ngFor="let status of statuses" class="tasks">
+        <h2>{{ status | titlecase }}</h2>
+        <app-task-list
+          [tasks]="filteredTasks(status)"
+          (delete)="deleteTask($event)"
+          (move)="moveTask($event.taskId, $event.status)"
+        ></app-task-list>
+      </div>
+    </div>
+  </div>
+</div>

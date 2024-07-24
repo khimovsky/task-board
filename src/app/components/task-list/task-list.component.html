@@ -1,0 +1,9 @@
+<ul class="list">
+  <li *ngFor="let task of tasks">
+    <app-task
+      [task]="task"
+      (delete)="onDelete(task.id)"
+      (move)="onMove(task.id, $event)"
+    ></app-task>
+  </li>
+</ul>

@@ -1,0 +1,16 @@
+<mat-card class="example-card" appearance="outlined" class="task">
+  <mat-card-header>
+    <mat-card-title>{{ task.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ task.description }}</p>
+  </mat-card-content>
+  <mat-card-footer class="example-card-footer">
+    <div class="actions">
+      <button mat-button (click)="onMove('new')" *ngIf="task.status !== 'new'">Переместить в новые задачи</button>
+      <button mat-button (click)="onMove('in-progress')" *ngIf="task.status !== 'in-progress'">Переместить в работу</button>
+      <button mat-button (click)="onMove('completed')" *ngIf="task.status !== 'completed'">Переместить в завершено</button>
+      <button mat-button (click)="onDelete()">Удалить</button>
+    </div>
+  </mat-card-footer>
+</mat-card>
